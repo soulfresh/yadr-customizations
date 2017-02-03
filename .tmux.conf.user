@@ -1,0 +1,16 @@
+# TMUX Plugin Manager
+run '~/.tmux/plugins/tpm/tpm'
+
+# Resurrect (restore TMUX sessions)
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @resurrect-strategy-vim 'session'
+set -g @resurrect-save 'S'
+set -g @resurrect-restore 'R'
+
+# Set Mouse mode and scrolling
+set -g mouse on
+bind-key -t vi-copy WheelUpPane scroll-up
+bind-key -t vi-copy WheelDownPane scroll-down
+set -g @scroll-speed-num-lines-per-scroll "5"
+set -g @emulate-scroll-for-no-mouse-alternate-buffer "on"
+run-shell ~/Development/tmux-scroll-copy-mode/scroll_copy_mode.tmux
