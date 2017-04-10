@@ -6,6 +6,7 @@ My personal customizations on top of YADR
 1. Set iTerm Solarized Dark under profiles
 1. Install one of the Powerline fonts that came with YADR and set that as the iTerm font (Profiles > Text > Change Font)
 1. Apply customizations in this repo to ~/
+1. Remove the EasyMotion plugin from ~/.vim/vundles/search.vundle?
 1. Run the osx setup script in ./bin
 1. `brew install nvm`
 1. `brew install vim --with-lua`
