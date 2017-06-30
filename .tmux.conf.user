@@ -1,16 +1,29 @@
-# TMUX Plugin Manager
-run '~/.tmux/plugins/tpm/tpm'
 
-# Resurrect (restore TMUX sessions)
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @resurrect-strategy-vim 'session'
-set -g @resurrect-save 'S'
-set -g @resurrect-restore 'R'
+# clipboard stuff for macOS
+# be sure to `brew install reattach-to-user-namespace` to use this
+# ^B ^C to set system clipboard to tmux's
+bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
+bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
+bind p paste-buffer
+bind -T copy-mode-vi 'v' send -X begin-selection
+bind -T copy-mode-vi 'y' send -X copy-selection
 
 # Set Mouse mode and scrolling
-set -g mouse on
-bind-key -t vi-copy WheelUpPane scroll-up
-bind-key -t vi-copy WheelDownPane scroll-down
-set -g @scroll-speed-num-lines-per-scroll "5"
-set -g @emulate-scroll-for-no-mouse-alternate-buffer "on"
-run-shell ~/Development/tmux-scroll-copy-mode/scroll_copy_mode.tmux
+set-option -g mouse on
+
+# Enable mouse scrolling in VIM.
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
+bind -n WheelDownPane select-pane -t= \; send-keys -M
+
+# # TMUX PLUGINS
+# set -g @plugin 'tmux-plugins/tpm'
+#
+# # Resurrect (restore TMUX sessions)
+# set -g @plugin 'tmux-plugins/tmux-resurrect'
+# set -g @resurrect-strategy-vim 'session'
+# set -g @resurrect-save 'S'
+# set -g @resurrect-restore 'R'
+#
+# # Initialize TMUX Plugin Manager last
+# run '~/.tmux/plugins/tpm/tpm'
+
