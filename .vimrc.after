@@ -8,5 +8,4 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 let g:syntastic_html_tidy_ignore_errors = ['is not recognized!']
 
-# Enable mouse scroll
 set mouse=a
