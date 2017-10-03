@@ -1,12 +1,16 @@
 
 # clipboard stuff for macOS
+
 # be sure to `brew install reattach-to-user-namespace` to use this
 # ^B ^C to set system clipboard to tmux's
-bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
-bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
-bind p paste-buffer
-bind -T copy-mode-vi 'v' send -X begin-selection
-bind -T copy-mode-vi 'y' send -X copy-selection
+# bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
+# bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
+
+# http://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-copy-pasting/
+bind P paste-buffer
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-selection
+bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 
 # Set Mouse mode and scrolling
 set-option -g mouse on
