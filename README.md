@@ -6,8 +6,8 @@ My personal customizations on top of YADR
 1. Install https://github.com/skwp/dotfiles
 1. Set iTerm Solarized Dark under profiles
 1. Install one of the Powerline fonts that came with YADR and set that as the iTerm font (Profiles > Text > Change Font)
-1. Apply customizations in this repo to ~/ by running `install.sh`
-1. Remove the EasyMotion plugin from ~/.vim/vundles/search.vundle?
+1. Apply customizations in this repo:
+  - `cd yadr-customizations && install.sh`
 1. Run the osx setup script in ./bin (not YADRs version)
 1. `brew install nvm`
 1. `brew install vim --with-lua`
@@ -18,3 +18,5 @@ My personal customizations on top of YADR
   - Chrome
   - Vimium
 1. Restart
+1. Customize aliases
+  - Change `gst` to `gstsh`
