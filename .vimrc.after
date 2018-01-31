@@ -1,3 +1,6 @@
+" Set Vim shell
+set shell=/usr/local/bin/zsh\ -l
+
 " NERDTree
 " Automatically open to the current directory
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
