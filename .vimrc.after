@@ -1,6 +1,11 @@
 " Set Vim shell
 set shell=/usr/local/bin/zsh\ -l
 
+" LocalVim settings (sources .lvimrc files per project)
+" whitelist all local vimrc files in ~/Development
+let g:localvimrc_whitelist='~/Development/.*'
+let g:localvimrc_ask=0
+
 " NERDTree
 " Automatically open to the current directory
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
@@ -42,6 +47,10 @@ nnoremap <silent> _ <C-w>>
 " nmap <M-j> <C-w>-
 " nmap <M-h> <C-w><
 " nmap <M-l> <C-w>>
+
+" Vim Javascript
+" This seems to be breaking class indentation.
+let g:jsx_ext_required = 1
 
 " Typescript configuration
 let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']

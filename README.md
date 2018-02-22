@@ -20,3 +20,14 @@ My personal customizations on top of YADR
 1. Restart
 1. Customize aliases
   - Change `gst` to `gstsh`
+
+## Setup Java
+1. `brew install jenv`
+1. `brew cask install java`
+1. `jenv add /Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home/`
+
+### If you want any older versions of java...
+1. `brew tap caskroom/versions`
+1. `brew cask install java8`
+1. `jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/`
+
