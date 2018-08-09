@@ -6,6 +6,8 @@ My personal customizations on top of YADR
 1. Install https://github.com/skwp/dotfiles
 1. `brew install vim --with-lua`
 1. `brew install nvm`
+1. `brew install fzf`
+1. `$(brew --prefix)/opt/fzf/install`
 1. Set iTerm Solarized Dark under profiles
 1. Install one of the Powerline fonts that came with YADR and set that as the iTerm font (Profiles > Text > Change Font)
 1. Apply customizations in this repo:
@@ -17,7 +19,7 @@ My personal customizations on top of YADR
   - Slack
   - Chrome
   - Vimium
-1. Restart
+1. Resart
 1. Customize aliases
   - Change `gst` to `gstsh`
 
@@ -31,3 +33,9 @@ My personal customizations on top of YADR
 1. `brew cask install java8`
 1. `jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/`
 
+# VIM
+
+## shortcuts
+
+1. `,,f` EasyMotion move forwards
+1. `,,b` EasyMotion move backwards

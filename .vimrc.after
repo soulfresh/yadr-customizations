@@ -3,7 +3,8 @@ set shell=/usr/local/bin/zsh\ -l
 
 " LocalVim settings (sources .lvimrc files per project)
 " whitelist all local vimrc files in ~/Development
-let g:localvimrc_whitelist='~/Development/.*'
+let g:localvimrc_sandbox = 0
+let g:localvimrc_whitelist='~/Development/**/.*'
 let g:localvimrc_ask=0
 
 " NERDTree
@@ -20,17 +21,24 @@ let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 " Syntastic ignores
-let g:syntastic_html_tidy_ignore_errors = ['is not recognized!']
+" let g:syntastic_html_tidy_ignore_errors = ['is not recognized!']
+
+" let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
+" Disable Syntastic for C++ because it's shit
+" let g:syntastic_cpp_checkers = ['']
 
 " Mouse selection should ignore line numbers
 set mouse=a
 
-" Keybindings
-
 " Auto-resize windows as they receive focus.
-set winheight=40
+" set winheight=40
 " set winminheight=10
 set winwidth=80
+
+
+" =====================
+" Keybindings
+" =====================
 
 " Resize windows:
 " + taller
@@ -48,31 +56,39 @@ nnoremap <silent> _ <C-w>>
 " nmap <M-h> <C-w><
 " nmap <M-l> <C-w>>
 
+" CtrlP
+" Alt-(M)ethod - jump to a method (tag in current file)
+" nnoremap <silent> <µ> :CtrlPBufTag<CR>
+" Alt-Shift-(M)ethod - search project ctags
+" nnoremap <silent> <Â> :CtrlPTag<CR>
+
 " Vim Javascript
 " This seems to be breaking class indentation.
 let g:jsx_ext_required = 1
 
 " Typescript configuration
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+" let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+" Faster saving?
+" let g:syntastic_typescript_checkers = ['tsc', 'tslint']
 
-let g:tsuquyomi_completion_detail = 1
-" Disable default quickfix for Syntastic support
-let g:tsuquyomi_disable_quickfix = 1
-let g:tsuquyomi_shortest_import_path = 1
-let g:tsuquyomi_single_quote_import = 1
-
-let g:typescript_compiler_binary = 'tsc'
-let g:typescript_compiler_options = ''
-
-nnoremap <Space>c :TsuquyomiQuickFix<CR>
-nnoremap <Space>h :echo tsuquyomi#hint()<CR>
-nnoremap <Space>si :TsuDefinition<CR>
-nnoremap <Space>i :TsuImport<CR>
-nnoremap <Space>m :make<CR>
-nnoremap <Space>p :TsuGeterrProject<CR>
-nnoremap <Space>r :TsuRenameSymbol<CR>
-nnoremap <Space>ra :TsuquyomiReloadProject<CR>
-nnoremap <Space>sr :TsuReferences<CR>
+" let g:tsuquyomi_completion_detail = 1
+" " Disable default quickfix for Syntastic support
+" let g:tsuquyomi_disable_quickfix = 1
+" let g:tsuquyomi_shortest_import_path = 1
+" let g:tsuquyomi_single_quote_import = 1
+"
+" let g:typescript_compiler_binary = 'tsc'
+" let g:typescript_compiler_options = ''
+"
+" nnoremap <Space>c :TsuquyomiQuickFix<CR>
+" nnoremap <Space>h :echo tsuquyomi#hint()<CR>
+" nnoremap <Space>si :TsuDefinition<CR>
+" nnoremap <Space>i :TsuImport<CR>
+" nnoremap <Space>m :make<CR>
+" nnoremap <Space>p :TsuGeterrProject<CR>
+" nnoremap <Space>r :TsuRenameSymbol<CR>
+" nnoremap <Space>ra :TsuquyomiReloadProject<CR>
+" nnoremap <Space>sr :TsuReferences<CR>
 
 " Fugitive
 nnoremap <Leader>gb :Gblame<CR>

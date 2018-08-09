@@ -1,0 +1,12 @@
+" Jump to a location by searching for two consecutive characters
+Bundle 'justinmk/vim-sneak'
+" Silver Searcher file searching
+Bundle 'rking/ag.vim'
+" Show search results/count in vim searche status line
+Bundle 'henrik/vim-indexed-search'
+" Search for selection in file
+Bundle 'nelstrom/vim-visual-star-search'
+" Global search and replace for vim
+Bundle 'skwp/greplace.vim'
+" Move forwards and backwards in the current file
+Bundle 'Lokaltog/vim-easymotion'

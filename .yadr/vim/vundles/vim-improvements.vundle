@@ -1,0 +1,44 @@
+Bundle "AndrewRadev/splitjoin.vim"
+" Auto colosing of quites, parens, etc.
+Bundle "Raimondi/delimitMate"
+Bundle "Shougo/neocomplete.git"
+Bundle "briandoll/change-inside-surroundings.vim.git"
+Bundle "godlygeek/tabular"
+" Comment/Uncomment code
+Bundle "tomtom/tcomment_vim.git"
+Bundle "vim-scripts/camelcasemotion.git"
+Bundle "vim-scripts/matchit.zip.git"
+Bundle "kristijanhusak/vim-multiple-cursors"
+Bundle "Keithbsmiley/investigate.vim"
+Bundle "chrisbra/NrrwRgn"
+" Navigate between tmux and vim splits
+Bundle "christoomey/vim-tmux-navigator"
+Bundle "MarcWeber/vim-addon-mw-utils.git"
+Bundle "bogado/file-line.git"
+Bundle "mattn/webapi-vim.git"
+Bundle "sjl/gundo.vim"
+Bundle "skwp/YankRing.vim"
+Bundle "tomtom/tlib_vim.git"
+" Replacements plugin that accepts regex subsitutions
+Bundle "tpope/vim-abolish"
+" if/end/do closer for ruby, shell, etc
+Bundle "tpope/vim-endwise.git"
+" Close XML like tags (HTML, ruby, php, etc)
+Bundle "tpope/vim-ragtag"
+" Make the . (repeat) command work with plugin maps too
+Bundle "tpope/vim-repeat.git"
+" Add/change surrounding elements (like quotes, params)
+Bundle "tpope/vim-surround.git"
+" Large collection of paired commands
+Bundle "tpope/vim-unimpaired"
+Bundle "vim-scripts/AnsiEsc.vim.git"
+" Automatically generate ctag files on file save
+" Does not work with multiple Python versions installed.
+" Bundle 'vim-scripts/AutoTag.git'
+" Auto generate ctags (replacement for AutoTag)
+Bundle "szw/vim-tags.git"
+Bundle "vim-scripts/lastpos.vim"
+Bundle "vim-scripts/sudo.vim"
+Bundle "goldfeld/ctrlr.vim"
+Bundle "editorconfig/editorconfig-vim"
+

@@ -1,3 +1,2 @@
 prompt mwren
 
-cd ~/Development

@@ -1,2 +1,19 @@
-Bundle 'quramy/tsuquyomi'
+" FZF fuzzy finder - requires fzf command to be installed in
+" your shell (homebrew)
+Bundle 'junegunn/fzf.vim'
+
+" Typescript integration
+" Ale should take care of typescript integration for us.
+" Bundle 'quramy/tsuquyomi'
+
+" Load project local .vimrc files
 Bundle 'embear/vim-localvimrc'
+
+" Platform.io integration for syntastic
+" Bundle 'aars/syntastic-platformio'
+
+" Meson integration for build commands and syntax checking.
+" Bundle 'igankevich/mesonic'
+
+" LLDB debugging interface
+Bundle 'gilligan/vim-lldb'

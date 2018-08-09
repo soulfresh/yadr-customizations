@@ -1,0 +1,8 @@
+" Vim Fugitive extension to show git log
+Bundle "gregsexton/gitv"
+" Easily create gists from vim
+Bundle "mattn/gist-vim"
+" Git plugin for vim
+Bundle "tpope/vim-fugitive"
+" Syntax coloring for git files in vim
+Bundle "tpope/vim-git"
