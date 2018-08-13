@@ -17,3 +17,6 @@ Bundle 'embear/vim-localvimrc'
 
 " LLDB debugging interface
 Bundle 'gilligan/vim-lldb'
+
+" Automate import commands in JS files
+Bundle 'Galooshi/vim-import-js'

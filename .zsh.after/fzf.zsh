@@ -1,4 +1,5 @@
-export FZF_DEFAULT_COMMAND='ag -g ""'
+# Use SilverSearcher, search dot files except for those in the git directory.
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # shellcheck source=/dev/null
