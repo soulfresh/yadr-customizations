@@ -8,3 +8,9 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'typescript': ['tslint']
 \}
+
+" Fixes issue where autocomplete automatically selects the
+" first autocomplete result without manually selecting it from
+" the autocomplete list.
+" https://github.com/w0rp/ale/issues/1700
+set completeopt=menu,menuone,preview,noselect,noinsert

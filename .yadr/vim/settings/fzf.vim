@@ -18,7 +18,7 @@ nnoremap <silent> ,b :Buffer<CR>
 " Search Git commits
 " nnoremap <silent> ,c :Commits<CR>
 " Search commits for the file in the current buffer
-nnoremap <silent> ,c :BCommits<CR>
+nnoremap <silent> ,g :BCommits<CR>
 
 " Search Vim command history
 nnoremap <silent> ,h :History<CR>
