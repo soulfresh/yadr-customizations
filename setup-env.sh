@@ -1,14 +1,8 @@
-# make development directory
-mkdir ~/Development
-
 # install brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # install vim
 brew install vim --with-lua
-
-# install nvm
-brew install nvm
 
 # install fzf
 brew install fzf
