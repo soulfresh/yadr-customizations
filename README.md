@@ -2,17 +2,23 @@
 My personal customizations on top of YADR
 
 # Usage
-1. Make sure you've got Brew installed
+1. Make sure xcode is installed and git is available (`> git` to check)
+1. Run `setup-env.sh`
+1. Run `setup-node.sh`
+
 1. Install https://github.com/skwp/dotfiles
 1. `brew install vim --with-lua`
 1. `brew install nvm`
 1. `brew install fzf`
 1. `$(brew --prefix)/opt/fzf/install`
 1. `npm install -g import-js`
+
 1. Set iTerm Solarized Dark under profiles
 1. Install one of the Powerline fonts that came with YADR and set that as the iTerm font (Profiles > Text > Change Font)
+
 1. Apply customizations in this repo:
   - `cd yadr-customizations && install.sh`
+
 1. Run the osx setup script in ./bin (not YADRs version)
 1. Setup SSH Keys
 1. Install other useful tools:
