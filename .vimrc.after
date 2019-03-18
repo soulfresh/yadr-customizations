@@ -1,6 +1,14 @@
 " Set Vim shell
 set shell=/usr/local/bin/zsh\ -l
 
+" Turn off wrapping
+set wrap!
+
+" Use modern Python for Gundo
+if has('python3')
+  let g:gundo_prefer_python3 = 1
+endif
+
 " NERDTree
 " Automatically open to the current directory
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
