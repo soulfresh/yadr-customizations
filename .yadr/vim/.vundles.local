@@ -20,3 +20,6 @@ Bundle 'gilligan/vim-lldb'
 
 " Automate import commands in JS files
 Bundle 'Galooshi/vim-import-js'
+
+" Syntax highlighting for .vue files
+Bundle 'posva/vim-vue'

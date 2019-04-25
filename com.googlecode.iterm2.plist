@@ -485,7 +485,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 588 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>469 491 1016 512 0 0 1920 1200 </string>
+	<string>469 491 796 486 0 0 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 198 570 402 0 0 1920 1200 </string>
 	<key>New Bookmarks</key>
@@ -1766,7 +1766,11 @@
 	<key>NoSyncInstallationId</key>
 	<string>73D79129-92F9-482A-B958-81FA1F0B0361</string>
 	<key>NoSyncLastTipTime</key>
-	<real>574391469.554649</real>
+	<real>575235212.26062298</real>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -1824,6 +1828,14 @@
 		<string>0047</string>
 		<string>0048</string>
 		<string>0049</string>
+		<string>0050</string>
+		<string>0051</string>
+		<string>0052</string>
+		<string>0053</string>
+		<string>0054</string>
+		<string>0055</string>
+		<string>0056</string>
+		<string>0057</string>
 	</array>
 	<key>PointerActions</key>
 	<dict>
@@ -1869,9 +1881,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-03-15T19:54:05Z</date>
+	<date>2019-03-25T15:19:23Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>Selection Respects Soft Boundaries</key>
+	<true/>
 	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>WordCharacters</key>
@@ -1879,7 +1893,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.7</string>
+	<string>3.2.8</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

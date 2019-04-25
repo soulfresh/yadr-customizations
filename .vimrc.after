@@ -2,7 +2,7 @@
 set shell=/usr/local/bin/zsh\ -l
 
 " Turn off wrapping
-set wrap!
+set formatoptions-=t
 
 " Use modern Python for Gundo
 if has('python3')
