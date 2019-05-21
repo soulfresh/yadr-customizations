@@ -2,8 +2,53 @@ snippet! page
 	export const selectors = {
 	};
 
-	export default class ${1:ClassName} {
+	export default class ${1:ClassName}PageObject {
 		constructor(root) {
 			this.root = root;
 		}
 	}
+
+snippet! rcc
+  import React, { Component } from 'react';
+
+	import './$1'
+
+	export default class ${1:${VISUAL}} extends React.Component {
+		render() {
+			return (
+				${2:<div />}
+			);
+		}
+	}
+
+snippet! rspec
+	import React from 'react';
+	import ReactDOM from 'react-dom';
+	import { act } from 'react-dom/test-utils';
+
+	import $1 from './$1';
+	import $1PageObject from './$1.page-object';
+
+	describe('${1:${VISUAL}}', function() {
+		let root, page;
+
+		beforeEach(function() {
+			root = document.createElement('div');
+			document.body.appendChild(root);
+			page = new $1PageObject(root);
+		});
+
+		afterEach(function() {
+			ReactDOM.unmountComponentAtNode(root);
+			root.remove();
+		});
+
+		beforeEach(function() {
+			act(() => {
+				ReactDOM.render(
+					<$1 />,
+					root
+				);
+			});
+		});
+	});
