@@ -3,52 +3,43 @@ snippet! page
 	};
 
 	export default class ${1:ClassName}PageObject {
-		constructor(root) {
-			this.root = root;
-		}
 	}
 
 snippet! reactclass
 	import React from 'react';
+	import PropTypes from 'prop-types';
 
 	import './$1.scss';
 
-	export default class ${1:${VISUAL}} extends React.Component {
-		render() {
-			return (
-				${2:<div />}
-			);
-		}
+	export default function ${1:${VISUAL}}(props) {
+		return (
+			${2:<div className=""></div>}
+		);
 	}
+
+	$1.propTypes = {
+	};
 
 snippet! rspec
 	import React from 'react';
-	import ReactDOM from 'react-dom';
-	import { act } from 'react-dom/test-utils';
 
 	import $1 from './$1';
 	import $1PageObject from './$1.page-object';
 
 	describe('${1:${VISUAL}}', function() {
-		let root, page;
+		let page;
 
 		beforeEach(function() {
-			root = document.createElement('div');
-			document.body.appendChild(root);
-			page = new $1PageObject(root);
+			page = new $1PageObject();
 		});
 
 		afterEach(function() {
-			ReactDOM.unmountComponentAtNode(root);
-			root.remove();
+		  page.destroySandbox();
 		});
 
 		beforeEach(function() {
-			act(() => {
-				ReactDOM.render(
-					<$1 />,
-					root
-				);
-			});
+		  page.render(
+				<$1 />
+			);
 		});
 	});
