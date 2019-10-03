@@ -1,8 +1,10 @@
 snippet! page
+  import PageObject from '~/PageObject';
+
 	export const selectors = {
 	};
 
-	export default class ${1:ClassName}PageObject {
+	export default class ${1:ClassName}PageObject extends PageObject {
 	}
 
 snippet! reactclass
@@ -40,7 +42,7 @@ snippet! reactfunction
 snippet! rspec
 	import React from 'react';
 
-	import $1 from './$1';
+	import $1 from './$1.jsx';
 	import $1PageObject from './$1.page-object';
 
 	describe('${1:${VISUAL}}', function() {
