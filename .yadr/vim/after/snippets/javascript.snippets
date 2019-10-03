@@ -11,6 +11,23 @@ snippet! reactclass
 
 	import './$1.scss';
 
+	export default class ${1:${VISUAL}} extends React.Component {
+		render() {
+			return (
+				${2:<div />}
+			);
+		}
+	}
+
+	$1.propTypes = {
+	};
+
+snippet! reactfunction
+	import React from 'react';
+	import PropTypes from 'prop-types';
+
+	import './$1.scss';
+
 	export default function ${1:${VISUAL}}(props) {
 		return (
 			${2:<div className=""></div>}
