@@ -7,9 +7,10 @@ Bundle 'honza/vim-snippets'
 " GitHub flavored markdown highlighting
 Bundle 'jtratner/vim-flavored-markdown.git'
 " Type checking/linting for vim
-" Bundle 'scrooloose/syntastic.git'
+Bundle 'scrooloose/syntastic.git'
 " Ale linting framework (replacement for Syntastic)
-Bundle 'w0rp/ale'
+" Go back to Syntastic to see if speed issues have been resolved.
+" Bundle 'w0rp/ale'
 " Preview markdown files in a browser
 Bundle 'nelstrom/vim-markdown-preview'
 " escape/unescape html entities in vim

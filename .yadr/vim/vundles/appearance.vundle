@@ -1,6 +1,6 @@
 " Set color name background colors (ie. #ff00ff would show a pink box with
 " black text)
-Bundle "chrisbra/Colorizer"
+Bundle "chrisbra/color_highlight.git"
 " Soloraized colors for vim
 Bundle "skwp/vim-colors-solarized"
 " Powerline for vim
@@ -12,7 +12,8 @@ Bundle "morhetz/gruvbox"
 " Plugin to add customizable bookmarks in the left gutter
 Bundle "xsunsmile/showmarks.git"
 " ANSI 16 color scheme for vim
-" Bundle 'chriskempson/base16-vim'
+" TODO Not sure why I had pulled this out previously.
+Bundle 'chriskempson/base16-vim'
 
 " Make GVim color schemes work in terminal vim
 " Required for Gblame in terminal vim

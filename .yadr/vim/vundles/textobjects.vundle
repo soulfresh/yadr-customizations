@@ -9,10 +9,10 @@ Bundle 'bootleq/vim-textobj-rubysymbol'
 " Column text editing
 Bundle 'coderifous/textobj-word-column.vim'
 " Library for creating textobjects (required by other plugins)
-Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-datetime'
 Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-function'
+Bundle 'kana/vim-textobj-user'
 " Manipulate underscored words
 Bundle 'lucapette/vim-textobj-underscore'
 " visually display indentation gutters

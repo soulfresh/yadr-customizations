@@ -3,16 +3,14 @@ Bundle "jistr/vim-nerdtree-tabs.git"
 " NerdTree
 Bundle "scrooloose/nerdtree.git"
 
-" Using FZF instead
 " File search
-" Bundle "ctrlpvim/ctrlp.vim"
+Bundle "ctrlpvim/ctrlp.vim"
 " Faster CtrlP file matching algorithm
-" Bundle 'JazzCore/ctrlp-cmatcher'
-
+Bundle 'JazzCore/ctrlp-cmatcher'
 " Fuzzy matcher for CtrlP
-" Bundle 'junegunn/fzf'
+Bundle 'junegunn/fzf'
 
 " Required for vim-session
-" Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-misc'
 " Store and recall your current vim session
-" Bundle 'xolox/vim-session'
+Bundle 'xolox/vim-session'
