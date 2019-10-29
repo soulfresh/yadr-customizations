@@ -15,7 +15,7 @@ Bundle 'nelstrom/vim-markdown-preview'
 " escape/unescape html entities in vim
 Bundle 'skwp/vim-html-escape'
 " react jsx syntax highlighting
-Bundle 'mxw/vim-jsx'
+" Bundle 'mxw/vim-jsx'
 " GraphQL syntax highlighting
 " Bundle 'jparise/vim-graphql'
 " Processing

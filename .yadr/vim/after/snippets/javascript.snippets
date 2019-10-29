@@ -7,6 +7,30 @@ snippet! page
 	export default class ${1:ClassName}PageObject extends PageObject {
 	}
 
+snippet! ngpage
+	import { DebugElement, Component } from '@angular/core';
+
+	import {
+		createTestBed as createModuleTestBed
+	} from '${3:ModuleName}';
+
+	@Component({
+		template: \`<app-${2:tag-name}
+		></app-$2>\`
+	})
+	export class TestWrapperComponent {
+	}
+
+	export const selectors = {};
+
+	export function createTestBed(wrapper: any) {
+		return createModuleTestBed(wrapper);
+	}
+
+	export class ${1:ClassName}PageObject {
+		constructor(public root: DebugElement) {}
+	}
+
 snippet! reactclass
 	import React from 'react';
 	import PropTypes from 'prop-types';
@@ -32,7 +56,7 @@ snippet! reactfunction
 
 	export default function ${1:${VISUAL}}(props) {
 		return (
-			${2:<div className=""></div>}
+			<div className="${2:ClassName}"></div>
 		);
 	}
 

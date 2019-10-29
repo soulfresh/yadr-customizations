@@ -2,6 +2,9 @@
 alias gst='git status'
 alias gstsh='git stash'
 
+# PATH HELPER
+alias path='echo -e ${PATH//:/\\n}'
+
 # Audio
 # Must be in directory
 alias mp32wav='for mp3 in ./*.mp3; do ffmpeg -i "$mp3" -acodec pcm_s16le -ac 1 -ar 16000 "${$(basename $mp3)}".wav; done'
@@ -20,4 +23,3 @@ alias mysql-replica="mysql -hcloudsql-replica -P3307 -p -umarc_ro"
 # Import Communities
 alias ci="~/Development/powerpro/breach/scripts/community-import --source-host 127.0.0.1 --source-port 3307 --source-user marc_ro --source-pass Ira12_lookup"
 alias cid="ci -gc -d"
-
