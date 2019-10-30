@@ -16,3 +16,6 @@ Bundle 'embear/vim-localvimrc'
 
 " Syntax highlighting for .vue files
 Bundle 'posva/vim-vue'
+
+" Rename vim tabs
+Bundle 'gcmt/taboo.vim'
