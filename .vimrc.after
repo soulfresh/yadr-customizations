@@ -1,33 +1,12 @@
+" ===============
+" Global
+" ---------------
+
 " Set Vim shell
 set shell=/usr/local/bin/zsh\ -l
 
 " Turn off wrapping
 set formatoptions-=t
-
-" Use modern Python for Gundo
-if has('python3')
-  let g:gundo_prefer_python3 = 1
-endif
-
-" NERDTree
-" Automatically open to the current directory
-" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
-" set autochdir
-autocmd BufEnter * silent! lcd %:p:h
-let NERDTreeChDirMode=2
-nnoremap <leader>n :NERDTree .<CR>
-
-" Change the cursor shape to match the edit mode.
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-
-" Syntastic ignores
-" let g:syntastic_html_tidy_ignore_errors = ['is not recognized!']
-
-" let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
-" Disable Syntastic for C++ because it's shit
-" let g:syntastic_cpp_checkers = ['']
 
 " Mouse selection should ignore line numbers
 set mouse=a
@@ -38,9 +17,9 @@ set mouse=a
 set winwidth=80
 
 
-" =====================
+" ===============
 " Keybindings
-" =====================
+" ---------------
 
 " Resize windows:
 " + taller
@@ -58,13 +37,41 @@ nnoremap <silent> _ <C-w>>
 " nmap <M-h> <C-w><
 " nmap <M-l> <C-w>>
 
-" CtrlP
-" Alt-(M)ethod - jump to a method (tag in current file)
-" nnoremap <silent> <µ> :CtrlPBufTag<CR>
-" Alt-Shift-(M)ethod - search project ctags
-" nnoremap <silent> <Â> :CtrlPTag<CR>
 
+" ===============
+" Gundo
+" ---------------
+" Use modern Python for Gundo
+if has('python3')
+  let g:gundo_prefer_python3 = 1
+endif
+
+
+" ===============
+" NERDTree
+" ---------------
+" Automatically open to the current directory
+" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
+" set autochdir
+autocmd BufEnter * silent! lcd %:p:h
+let NERDTreeChDirMode=2
+nnoremap <leader>n :NERDTree .<CR>
+
+" Change the cursor shape to match the edit mode.
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+
+" ===============
+" Syntastic
+" ---------------
+" let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
+
+
+" ===============
 " Vim Javascript
+" ---------------
 " This seems to be breaking class indentation.
 let g:jsx_ext_required = 1
 
@@ -72,7 +79,11 @@ let g:jsx_ext_required = 1
 " let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
 " Faster saving?
 " let g:syntastic_typescript_checkers = ['tsc', 'tslint']
+"
 
+" ===============
+" Tsuquyomi
+" ---------------
 " let g:tsuquyomi_completion_detail = 1
 " " Disable default quickfix for Syntastic support
 " let g:tsuquyomi_disable_quickfix = 1
@@ -91,8 +102,11 @@ let g:jsx_ext_required = 1
 " nnoremap <Space>r :TsuRenameSymbol<CR>
 " nnoremap <Space>ra :TsuquyomiReloadProject<CR>
 " nnoremap <Space>sr :TsuReferences<CR>
+"
 
+" ===============
 " Fugitive
+" ---------------
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gc :Gcommit -v<CR>
 nnoremap <Leader>gw :Gwrite<CR>
@@ -103,3 +117,90 @@ nnoremap <Leader>gd :Gvdiff<CR>
 nnoremap <Leader>gx :wincmd h<CR>:q<CR>
 nnoremap <leader>gi :Git<space>
 command! Gcundo :Git reset HEAD~1
+
+
+" ===============
+" CtrlP
+" ---------------
+" Include dot files in searches
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command =
+    \ 'ag %s --files-with-matches -g "" --hidden --ignore {.git,.hg,.svn,node_modules}'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+
+" ===============
+" ALE
+" ---------------
+" " Set this variable to 1 to fix files when you save them.
+" let g:ale_fix_on_save = 1
+" " Enable completion where available.
+" let g:ale_completion_enabled = 1
+"
+" " Linter list
+" let g:ale_fixers = {
+" \   'javascript': ['eslint'],
+" \   'typescript': ['tslint']
+" \}
+"
+" " Fixes issue where autocomplete automatically selects the
+" " first autocomplete result without manually selecting it from
+" " the autocomplete list.
+" " https://github.com/w0rp/ale/issues/1700
+" set completeopt=menu,menuone,preview,noselect,noinsert
+
+
+" ===============
+" Fzf
+" ---------------
+" " Enable fzf
+" set rtp+=/usr/local/opt/fzf
+"
+" " Function to find files in the closest git project root folder
+" function! s:find_git_root()
+"   return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+" endfunction
+"
+" command! ProjectFiles execute 'Files' s:find_git_root()
+"
+" " We don't want to use Ctrl-p as the mapping because
+" " it interferes with YankRing (paste, then hit ctrl-p)
+" nnoremap <silent> ,t :ProjectFiles<CR>
+"
+" " Additional mapping for buffer search
+" nnoremap <silent> ,b :Buffer<CR>
+"
+" " Search Git commits
+" " nnoremap <silent> ,c :Commits<CR>
+" " Search commits for the file in the current buffer
+" nnoremap <silent> ,g :BCommits<CR>
+"
+" " Search Vim command history
+" nnoremap <silent> ,h :History<CR>
+
+
+" ===============
+" Import JS
+" ---------------
+" " Import the file under the cursor
+" noremap <Space>i :ImportJSWord<CR>
+"
+" " Add/Cleanup imports
+" noremap <Space>f :ImportJSFix<CR>
+"
+" " Go to the package under cursor
+" noremap <Space>g :ImportJSGoto<CR>
+
+
+" ===============
+" Local Vimrc
+" ---------------
+" LocalVim settings (sources .lvimrc files per project)
+" whitelist all local vimrc files in ~/Development
+let g:localvimrc_sandbox = 0
+" let g:localvimrc_whitelist='~/Development/**/.lvimrc'
+let g:localvimrc_ask=0
