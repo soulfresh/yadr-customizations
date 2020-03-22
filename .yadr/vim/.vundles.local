@@ -3,7 +3,7 @@
 " Bundle 'quramy/tsuquyomi'
 
 " Load project local .vimrc files
-Bundle 'embear/vim-localvimrc'
+Bundle 'MarcWeber/vim-addon-local-vimrc'
 
 " Platform.io integration for syntastic
 " Bundle 'aars/syntastic-platformio'
@@ -19,3 +19,9 @@ Bundle 'posva/vim-vue'
 
 " Rename vim tabs
 Bundle 'gcmt/taboo.vim'
+
+" Additional Syntaxes for common Javascript libraries
+Bundle 'othree/javascript-libraries-syntax.vim'
+
+" C-Tags (Because I removed the version inside of YADR's Ruby plugins)
+Bundle 'szw/vim-tags'

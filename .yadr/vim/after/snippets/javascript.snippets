@@ -5,6 +5,7 @@ snippet! page
 	};
 
 	export default class ${1:ClassName}PageObject extends PageObject {
+		selectors = selectors;
 	}
 
 snippet! ngpage
@@ -48,15 +49,14 @@ snippet! reactclass
 	$1.propTypes = {
 	};
 
-snippet! reactfunction
-	import React from 'react';
-	import PropTypes from 'prop-types';
-
-	import './$1.scss';
-
-	export default function ${1:${VISUAL}}(props) {
+snippet! reactfunc
+	export function ${1:ClassName}({
+		className,
+		...rest
+	}) {
 		return (
-			<div className="${2:ClassName}"></div>
+			<div className={combineClasses(styles.$1, className)} {...rest}>
+			</div>
 		);
 	}
 
@@ -86,3 +86,32 @@ snippet! rspec
 			);
 		});
 	});
+
+snippet! storybook
+	import React from 'react';
+	import { storiesOf } from '@storybook/react';
+
+	import $1 from './$1.jsx';
+
+	storiesOf('${1:ComponentName}', module)
+		.addWithChapters('$1', {
+			chapters: [{
+				sections: [{
+					sectionFn: () => (
+						$2
+					)
+				}]
+			}]
+		});
+
+snippet! storiesOf
+	storiesOf('${1:Name}', module)
+		.addWithChapters('$1', {
+			chapters: [{
+				sections: [{
+					sectionFn: () => (
+						$2
+					)
+				}]
+			}]
+		});

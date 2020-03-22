@@ -18,7 +18,17 @@ set winwidth=80
 
 
 " ===============
-" Keybindings
+" Copy/Paste
+" ---------------
+" Paste from non-volatile register (only things you have yanked; as opposed to
+" things you have deleted).
+nnoremap <leader>p "0p
+vnoremap <leader>p "0p
+nnoremap <leader>y "*y
+vnoremap <leader>y "*y
+
+" ===============
+" Resize Windows
 " ---------------
 
 " Resize windows:
@@ -30,12 +40,6 @@ nnoremap <silent> + <C-w>+
 nnoremap <silent> = <C-w>-
 nnoremap <silent> - <C-w><
 nnoremap <silent> _ <C-w>>
-
-" Resize windows with arrow keys
-" nmap <M-k> <C-w>+
-" nmap <M-j> <C-w>-
-" nmap <M-h> <C-w><
-" nmap <M-l> <C-w>>
 
 
 " ===============
@@ -67,19 +71,42 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " Syntastic
 " ---------------
 " let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
+let g:syntastic_html_tidy_exec = '/usr/local/bin/tidy'
 
+" Set up the arrays to ignore for later
+if !exists('g:syntastic_html_tidy_ignore_errors')
+  let g:syntastic_html_tidy_ignore_errors = []
+endif
+
+" Angular ignores
+let g:syntastic_html_tidy_ignore_errors += [
+  \ '<ng-',
+  \ '<app-'
+  \ ]
+
+" Storybook .mdx files
+let g:syntastic_mdx_checkers = ['jsl']
 
 " ===============
 " Vim Javascript
 " ---------------
-" This seems to be breaking class indentation.
+" Only use JSX syntax plugin on files with a JSX extension
 let g:jsx_ext_required = 1
+
+" Add JSDoc syntax highlighting
+let g:javascript_plugin_jsdoc = 1
 
 " Typescript configuration
 " let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
 " Faster saving?
 " let g:syntastic_typescript_checkers = ['tsc', 'tslint']
-"
+
+
+" ===============
+" Javascript Libraries Syntax
+" ---------------
+" Define the libraries I use
+let g:used_javascript_libs = 'jquery,react,jasmine,d3'
 
 " ===============
 " Tsuquyomi
@@ -131,6 +158,9 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+" Default to path searches
+let g:ctrlp_by_filename = 0
 
 
 " ===============
@@ -195,12 +225,3 @@ endif
 " " Go to the package under cursor
 " noremap <Space>g :ImportJSGoto<CR>
 
-
-" ===============
-" Local Vimrc
-" ---------------
-" LocalVim settings (sources .lvimrc files per project)
-" whitelist all local vimrc files in ~/Development
-let g:localvimrc_sandbox = 0
-" let g:localvimrc_whitelist='~/Development/**/.lvimrc'
-let g:localvimrc_ask=0

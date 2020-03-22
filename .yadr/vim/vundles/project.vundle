@@ -1,5 +1,5 @@
 " Make NerdTree a singleton tab
-Bundle "jistr/vim-nerdtree-tabs.git"
+" Bundle "jistr/vim-nerdtree-tabs.git"
 " NerdTree
 Bundle "scrooloose/nerdtree.git"
 
