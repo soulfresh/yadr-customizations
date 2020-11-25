@@ -1,5 +1,5 @@
 snippet! page
-	import PageObject from '~/PageObject';
+	import PageObject from 'page-o';
 
 	export const selectors = {
 	};
@@ -66,7 +66,7 @@ snippet! reactfunc
 snippet! rspec
 	import React from 'react';
 
-	import $1 from './$1.jsx';
+	import { $1 } from './$1.jsx';
 	import $1PageObject from './$1.page-object';
 
 	describe('${1:${VISUAL}}', function() {
@@ -87,31 +87,3 @@ snippet! rspec
 		});
 	});
 
-snippet! storybook
-	import React from 'react';
-	import { storiesOf } from '@storybook/react';
-
-	import $1 from './$1.jsx';
-
-	storiesOf('${1:ComponentName}', module)
-		.addWithChapters('$1', {
-			chapters: [{
-				sections: [{
-					sectionFn: () => (
-						$2
-					)
-				}]
-			}]
-		});
-
-snippet! storiesOf
-	storiesOf('${1:Name}', module)
-		.addWithChapters('$1', {
-			chapters: [{
-				sections: [{
-					sectionFn: () => (
-						$2
-					)
-				}]
-			}]
-		});

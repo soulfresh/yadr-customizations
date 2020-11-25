@@ -1,0 +1,89 @@
+snippet! page
+	import PageObject from 'page-o';
+
+	export const selectors = {
+	};
+
+	export default class ${1:ClassName}PageObject extends PageObject {
+		selectors = selectors;
+	}
+
+snippet! ngpage
+	import { DebugElement, Component } from '@angular/core';
+
+	import {
+		createTestBed as createModuleTestBed
+	} from '${3:ModuleName}';
+
+	@Component({
+		template: \`<app-${2:tag-name}
+		></app-$2>\`
+	})
+	export class TestWrapperComponent {
+	}
+
+	export const selectors = {};
+
+	export function createTestBed(wrapper: any) {
+		return createModuleTestBed(wrapper);
+	}
+
+	export class ${1:ClassName}PageObject {
+		constructor(public root: DebugElement) {}
+	}
+
+snippet! reactclass
+	import React from 'react';
+	import PropTypes from 'prop-types';
+
+	import './$1.scss';
+
+	export default class ${1:${VISUAL}} extends React.Component {
+		render() {
+			return (
+				${2:<div />}
+			);
+		}
+	}
+
+	$1.propTypes = {
+	};
+
+snippet! reactfunc
+	export function ${1:ClassName}({
+		className,
+		...rest
+	}) {
+		return (
+			<div className={combineClasses(styles.$1, className)} {...rest}>
+			</div>
+		);
+	}
+
+	$1.propTypes = {
+	};
+
+snippet! rspec
+	import React from 'react';
+
+	import { $1 } from './$1.jsx';
+	import $1PageObject from './$1.page-object';
+
+	describe('${1:${VISUAL}}', function() {
+		let page;
+
+		beforeEach(function() {
+			page = new $1PageObject();
+		});
+
+		afterEach(function() {
+		  page.destroySandbox();
+		});
+
+		beforeEach(function() {
+		  page.render(
+				<$1 />
+			);
+		});
+	});
+
