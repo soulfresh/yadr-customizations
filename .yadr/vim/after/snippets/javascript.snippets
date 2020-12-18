@@ -1,4 +1,4 @@
-snippet! page
+snippet page
 	import PageObject from 'page-o';
 
 	export const selectors = {
@@ -8,7 +8,7 @@ snippet! page
 		selectors = selectors;
 	}
 
-snippet! ngpage
+snippet ngpage
 	import { DebugElement, Component } from '@angular/core';
 
 	import {
@@ -32,7 +32,7 @@ snippet! ngpage
 		constructor(public root: DebugElement) {}
 	}
 
-snippet! reactclass
+snippet reactclass
 	import React from 'react';
 	import PropTypes from 'prop-types';
 
@@ -49,7 +49,7 @@ snippet! reactclass
 	$1.propTypes = {
 	};
 
-snippet! reactfunc
+snippet reactfunc
 	export function ${1:ClassName}({
 		className,
 		...rest
@@ -63,7 +63,7 @@ snippet! reactfunc
 	$1.propTypes = {
 	};
 
-snippet! rspec
+snippet rspec
 	import React from 'react';
 
 	import { $1 } from './$1.jsx';

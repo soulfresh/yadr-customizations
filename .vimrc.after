@@ -88,48 +88,11 @@ let g:syntastic_html_tidy_ignore_errors += [
 let g:syntastic_mdx_checkers = ['jsl']
 
 " ===============
-" Vim Javascript
-" ---------------
-" Only use JSX syntax plugin on files with a JSX extension
-let g:jsx_ext_required = 1
-
-" Add JSDoc syntax highlighting
-let g:javascript_plugin_jsdoc = 1
-
-" Typescript configuration
-" let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
-" Faster saving?
-" let g:syntastic_typescript_checkers = ['tsc', 'tslint']
-
-
-" ===============
 " Javascript Libraries Syntax
 " ---------------
 " Define the libraries I use
-let g:used_javascript_libs = 'jquery,react,jasmine,d3'
+" let g:used_javascript_libs = 'jquery,react,jasmine,d3'
 
-" ===============
-" Tsuquyomi
-" ---------------
-" let g:tsuquyomi_completion_detail = 1
-" " Disable default quickfix for Syntastic support
-" let g:tsuquyomi_disable_quickfix = 1
-" let g:tsuquyomi_shortest_import_path = 1
-" let g:tsuquyomi_single_quote_import = 1
-"
-" let g:typescript_compiler_binary = 'tsc'
-" let g:typescript_compiler_options = ''
-"
-" nnoremap <Space>c :TsuquyomiQuickFix<CR>
-" nnoremap <Space>h :echo tsuquyomi#hint()<CR>
-" nnoremap <Space>si :TsuDefinition<CR>
-" nnoremap <Space>i :TsuImport<CR>
-" nnoremap <Space>m :make<CR>
-" nnoremap <Space>p :TsuGeterrProject<CR>
-" nnoremap <Space>r :TsuRenameSymbol<CR>
-" nnoremap <Space>ra :TsuquyomiReloadProject<CR>
-" nnoremap <Space>sr :TsuReferences<CR>
-"
 
 " ===============
 " Fugitive
@@ -224,4 +187,10 @@ let g:ctrlp_by_filename = 0
 "
 " " Go to the package under cursor
 " noremap <Space>g :ImportJSGoto<CR>
+
+" ===============
+" Coc
+" ---------------
+"  Install and enable language servers.
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-html', 'coc-css', 'coc-browser', 'coc-eslint', 'coc-stylelint', 'coc-snippets']
 

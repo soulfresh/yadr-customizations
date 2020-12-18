@@ -1,0 +1,26 @@
+" Syntax highlighting for .vue files
+Bundle "posva/vim-vue"
+
+" Rename vim tabs
+Bundle "gcmt/taboo.vim"
+
+" Additional Syntaxes for common Javascript libraries
+" Bundle "othree/javascript-libraries-syntax.vim"
+
+" Syntax highlighting for javascript
+Bundle "yuezk/vim-js"
+
+" Syntax highlighting and indentation for jsx
+Bundle "maxmellon/vim-jsx-pretty"
+
+" Deoplete support. Didn't get this working. Trying CoC instead.
+" Required by deoplete
+" Bundle "roxma/nvim-yarp"
+" Bundle "roxma/vim-hug-neovim-rpc"
+" Autocomplete replacement for neocomplete
+" Bundle "Shougo/deoplete.nvim"
+" Javascript syntax support through tern
+" Bundle "ternjs/tern_for_vim"
+
+" CoC for autocompletion, linting and other LSP features
+Bundle "neoclide/coc.nvim"
