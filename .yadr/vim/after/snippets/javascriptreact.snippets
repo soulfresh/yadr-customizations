@@ -63,6 +63,42 @@ snippet reactfunc
 	$1.propTypes = {
 	};
 
+snippet reactforward
+	export const ${1:ClassName} = React.forwardRef(({
+		className,
+		...rest
+	}, ref) => {
+		return (
+			<div className={combineClasses(styles.$1, className)} {...rest}>
+			</div>
+		);
+	});
+
+	$1.propTypes = {
+	};
+
+snippet reactcomp
+	import PropTypes from 'prop-types';
+
+	import styles from './$1.module.scss';
+
+	export function ${1:ClassName}({
+		className,
+		...rest
+	}) {
+		return (
+			<div className={combineClasses(styles.$1, className)} {...rest}>
+			</div>
+		);
+	}
+
+	$1.propTypes = {
+	};
+
+snippet importreact
+	import React from 'react';
+	import PropTypes from 'prop-types';
+
 snippet rspec
 	import React from 'react';
 

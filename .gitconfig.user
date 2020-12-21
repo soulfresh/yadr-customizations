@@ -1,3 +1,6 @@
 [user]
 	name = Marc Wren
 	email = things@soul-fresh.com
+
+[pull]
+  ff = only
