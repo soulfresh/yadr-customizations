@@ -21,7 +21,3 @@ My personal customizations on top of YADR
   - Vimium
 1. Resart
 
-## shortcuts
-
-1. `,,f` EasyMotion move forwards
-1. `,,b` EasyMotion move backwards

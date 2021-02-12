@@ -50,6 +50,10 @@ snippet reactclass
 	};
 
 snippet reactfunc
+	/**
+	 * @param {object} props
+	 * @param {string} [props.className]
+	 */
 	export function ${1:ClassName}({
 		className,
 		...rest
@@ -64,6 +68,13 @@ snippet reactfunc
 	};
 
 snippet reactforward
+	/**
+	 * @typedef {object} $1Props
+	 * @property {*} [ref]
+	 */
+	/**
+	 * @type React.FC<$1Props>
+	 */
 	export const ${1:ClassName} = React.forwardRef(({
 		className,
 		...rest
@@ -78,7 +89,12 @@ snippet reactforward
 	};
 
 snippet reactcomp
+	import React from 'react';
 	import PropTypes from 'prop-types';
+	
+	import {
+	  combineClasses,
+	} from '~/util';
 
 	import styles from './$1.module.scss';
 

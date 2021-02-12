@@ -43,6 +43,13 @@ nnoremap <silent> _ <C-w>>
 
 
 " ===============
+" File types
+" ---------------
+" Set the filetype for env files if not already set
+au BufRead,BufNewFile *.env.* setfiletype sh
+
+
+" ===============
 " Gundo
 " ---------------
 " Use modern Python for Gundo
@@ -66,6 +73,12 @@ let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
+
+" ===============
+" EditorConfig
+" ---------------
+" Ignore Vim Figitive files and files on remote servers
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " ===============
 " Syntastic
@@ -127,24 +140,9 @@ let g:ctrlp_by_filename = 0
 
 
 " ===============
-" ALE
+" SnipMate
 " ---------------
-" " Set this variable to 1 to fix files when you save them.
-" let g:ale_fix_on_save = 1
-" " Enable completion where available.
-" let g:ale_completion_enabled = 1
-"
-" " Linter list
-" let g:ale_fixers = {
-" \   'javascript': ['eslint'],
-" \   'typescript': ['tslint']
-" \}
-"
-" " Fixes issue where autocomplete automatically selects the
-" " first autocomplete result without manually selecting it from
-" " the autocomplete list.
-" " https://github.com/w0rp/ale/issues/1700
-" set completeopt=menu,menuone,preview,noselect,noinsert
+let g:snipMate = { 'snippet_version' : 1 }
 
 
 " ===============
@@ -177,20 +175,34 @@ let g:ctrlp_by_filename = 0
 
 
 " ===============
-" Import JS
-" ---------------
-" " Import the file under the cursor
-" noremap <Space>i :ImportJSWord<CR>
-"
-" " Add/Cleanup imports
-" noremap <Space>f :ImportJSFix<CR>
-"
-" " Go to the package under cursor
-" noremap <Space>g :ImportJSGoto<CR>
-
-" ===============
 " Coc
 " ---------------
+" Explicitly set the node executable to use.
+" We need to make sure at least 10.12 is used.
+let g:coc_node_path = '/usr/local/Cellar/node/15.4.0/bin/node'
+
 "  Install and enable language servers.
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-html', 'coc-css', 'coc-browser', 'coc-eslint', 'coc-stylelint', 'coc-snippets']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-html', 'coc-css', 'coc-browser', 'coc-stylelint', 'coc-snippets', 'coc-eslint']
+
+" Use Enter key to select items in the autocomplete dialog
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Allow Enter to select the first item in the auotocomplete dialog if nothing
+" is selected.
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
+" Use ctrl-space to trigger the autocomplete dialog
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+  " This is close but it's not closing all windows
+  " inoremap <silent><expr> <c-@> coc#util#has_float() ? coc#float#close_all() : coc#refresh()
+endif
+
+" Shortcuts
+" Rename Symbol
+nmap <leader>rr <Plug>(coc-rename)
+" Rename (Move) File
+nnoremap <silent> <leader>rf :call CocActionAsync('runCommand', 'workspace.renameCurrentFile')<cr>
+
 

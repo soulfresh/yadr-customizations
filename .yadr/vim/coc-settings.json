@@ -1,26 +1,27 @@
 {
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 25,
+  "suggest.autoTrigger": "none",
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact",
-    "typescript.tsx"
+    "json"
   ],
   "eslint.filetypes": [
     "javascript",
     "typescript",
-    "typescriptreact",
     "javascriptreact",
+    "typescriptreact",
+    "javascript.jsx",
     "typescript.tsx"
   ],
-  "diagnostic.errorSign": "•",
-  "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•",
+  "eslint.autoFixOnSave": true,
   "snippets.ultisnips.directories": [
     "snippets",
     "UltiSnips"
-  ]
+  ],
+  "diagnostic.errorSign": "✗",
+  "diagnostic.infoSign": "i",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.hintSign": "➤",
+  "suggest.triggerCompletionWait": 60,
+  "tsserver.npm": "/usr/local/Cellar/node/15.4.0/bin/node"
 }
