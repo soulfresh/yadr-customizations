@@ -1,6 +1,13 @@
 " ===============
+" Color Scheme
+" ---------------
+" set background=light
+" so ~/.vim/settings/solarized.vim
+
+" ===============
 " Global
 " ---------------
+
 
 " Set Vim shell
 set shell=/usr/local/bin/zsh\ -l

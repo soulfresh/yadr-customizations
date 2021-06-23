@@ -13,7 +13,7 @@
     "javascript.jsx",
     "typescript.tsx"
   ],
-  "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": false,
   "snippets.ultisnips.directories": [
     "snippets",
     "UltiSnips"
