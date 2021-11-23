@@ -1,6 +1,7 @@
 " ===============
 " Color Scheme
 " ---------------
+" Use the following to default to the light background.
 " set background=light
 " so ~/.vim/settings/solarized.vim
 
@@ -86,6 +87,11 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " ---------------
 " Ignore Vim Figitive files and files on remote servers
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" For some reason I'm unable to override <leader>gs without using the
+" following autocmd
+" nnoremap <silent> <leader>gs :Git<CR>
+autocmd VimEnter * noremap <leader>gs :Git<CR>
 
 " ===============
 " Syntastic
@@ -213,3 +219,13 @@ nmap <leader>rr <Plug>(coc-rename)
 nnoremap <silent> <leader>rf :call CocActionAsync('runCommand', 'workspace.renameCurrentFile')<cr>
 
 
+" ===============
+" Tidy Commands
+" ---------------
+" Haven't been able to get this working yet
+" nnoremap <buffer> <leader>th :exec '!tidy -mi -html -wrap 0 %' shellescape(@%, 1)<cr>
+
+" ===============
+" Open Frameworks
+" ---------------
+autocmd  BufRead,BufNewFile  *.cpp let &makeprg = 'if [ -f Makefile ]; then make Release && make RunRelease; else make Release -C .. && make RunRelease -C ..; fi'

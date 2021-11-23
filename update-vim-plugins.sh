@@ -15,3 +15,7 @@ sed -i .bak -e '/Shougo\/neocomplete.git/d' ~/.yadr/vim/vundles/vim-improvements
 yadr init-plugins
 # Force an install of any plugin to get everything updated.
 yadr vim-add-plugin -u 'gcmt/taboo.vim'
+
+# CoC setup
+echo "CoC Setup..."
+cd ~/.yadr/vim/bundle/coc.nvim && yarn install --frozen-lockfile

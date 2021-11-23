@@ -1,6 +1,8 @@
 # GIT
 alias gst='git status'
 alias gstsh='git stash'
+# stash unstaged changes
+alias gstshs='git stash --keep-index -u'
 
 # PATH HELPER
 alias path='echo -e ${PATH//:/\\n}'
