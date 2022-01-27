@@ -190,34 +190,9 @@ let g:snipMate = { 'snippet_version' : 1 }
 " ===============
 " Coc
 " ---------------
-" Explicitly set the node executable to use.
-" We need to make sure at least 10.12 is used.
-let g:coc_node_path = '/usr/local/Cellar/node/15.4.0/bin/node'
-
-"  Install and enable language servers.
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-html', 'coc-css', 'coc-browser', 'coc-stylelint', 'coc-snippets', 'coc-eslint']
-
-" Use Enter key to select items in the autocomplete dialog
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Allow Enter to select the first item in the auotocomplete dialog if nothing
-" is selected.
-" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-
-" Use ctrl-space to trigger the autocomplete dialog
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-  " This is close but it's not closing all windows
-  " inoremap <silent><expr> <c-@> coc#util#has_float() ? coc#float#close_all() : coc#refresh()
-endif
-
-" Shortcuts
-" Rename Symbol
-nmap <leader>rr <Plug>(coc-rename)
-" Rename (Move) File
-nnoremap <silent> <leader>rf :call CocActionAsync('runCommand', 'workspace.renameCurrentFile')<cr>
-
+" if filereadable(expand("~/.yadr/vim/after/coc.vim"))
+"   source ~/.yadr/vim/after/coc.vim
+" endif
 
 " ===============
 " Tidy Commands
