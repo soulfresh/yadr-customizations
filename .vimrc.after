@@ -9,7 +9,6 @@
 " Global
 " ---------------
 
-
 " Set Vim shell
 set shell=/usr/local/bin/zsh\ -l
 
@@ -23,6 +22,9 @@ set mouse=a
 " set winheight=40
 " set winminheight=10
 set winwidth=80
+set textwidth=80
+" Auto wrap comments (only) at textwidth
+set formatoptions-=t
 
 
 " ===============
@@ -97,6 +99,8 @@ autocmd VimEnter * noremap <leader>gs :Git<CR>
 " Syntastic
 " ---------------
 " let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
+let g:syntastic_cpp_checkers = []
+
 let g:syntastic_html_tidy_exec = '/usr/local/bin/tidy'
 
 " Set up the arrays to ignore for later
@@ -203,4 +207,5 @@ let g:snipMate = { 'snippet_version' : 1 }
 " ===============
 " Open Frameworks
 " ---------------
-autocmd  BufRead,BufNewFile  *.cpp let &makeprg = 'if [ -f Makefile ]; then make Release && make RunRelease; else make Release -C .. && make RunRelease -C ..; fi'
+" Build and run OpenFrameworks project related to buffer
+" autocmd  BufRead,BufNewFile  *.cpp let &makeprg = 'if [ -f Makefile ]; then make Release && make RunRelease; else make Release -C .. && make RunRelease -C ..; fi'

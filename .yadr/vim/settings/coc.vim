@@ -29,21 +29,19 @@ else
   set signcolumn=yes
 endif
 
-" NOTE: Marc, taking this out for now because it interferes with SnipMate
-" tab stops and I prefer CTRL + SPACE to open the suggestions.
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Use tab for snippet completion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -51,11 +49,6 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -69,7 +62,9 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" TODO Conflics with AG search but would be nice to find a better binding for
+" this.
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -168,12 +163,29 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " --- RECOMMENDED CONFIG END ---
+"
+" C++ clangd mappings
+nmap <silent> th :<C-u>CocCommand clangd.switchSourceHeader<cr>
 
-
-
-" Explicitly set the node executable to use.
-" We need to make sure at least 10.12 is used.
-let g:coc_node_path = '/usr/local/Cellar/node/15.4.0/bin/node'
+" Explicitly set the node executable to use because Coc
+" has requirements around this.
+" Use whatever was installed by Homebrew and use the
+" coc-settings.json file tsserver.npm variable to specify
+" the correct node to use.
+" let g:coc_node_path = '/usr/local/bin/node'
+" let g:coc_node_path = '/usr/local/Cellar/node/15.4.0/bin/node'
 
 "  Install and enable language servers.
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-html', 'coc-css', 'coc-cssmodules', 'coc-browser', 'coc-stylelint', 'coc-snippets', 'coc-eslint']
+let g:coc_global_extensions = [
+  \'coc-json',
+  \'coc-git',
+  \'coc-tsserver',
+  \'coc-html',
+  \'coc-css',
+  \'coc-cssmodules',
+  \'coc-browser',
+  \'coc-stylelint',
+  \'coc-snippets',
+  \'coc-eslint',
+  \'coc-clangd'
+\]
