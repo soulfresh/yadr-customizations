@@ -1,3 +1,4 @@
+# This file gets called automatically when you run `./customize.sh`
 
 # Update the following plugins provided by YADR
 # ---------------------------------------------
