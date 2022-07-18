@@ -1,3 +1,12 @@
+# Force screen-256color instead of tmux-256color because Homebrew builds
+# against old dependencies:
+# https://github.com/Homebrew/homebrew-core/issues/102748#issuecomment-1145378599
+set -g default-terminal screen-256color
+
+# Set cursor shape on a per pane basis
+# https://gist.github.com/andyfowler/1195581?permalink_comment_id=2852367#gistcomment-2852367
+set -ga terminal-overrides ',*:Tc' # this is for 256 color
+set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q' # this is for the cursor shape]]'
 
 # clipboard stuff for macOS
 
