@@ -1,5 +1,5 @@
 " Syntax highlighting for .vue files
-Bundle "posva/vim-vue"
+" Bundle "posva/vim-vue"
 
 " Rename vim tabs
 Bundle "gcmt/taboo.vim"
