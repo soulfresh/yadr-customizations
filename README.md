@@ -19,5 +19,5 @@ My personal customizations on top of YADR
   - Slack
   - Chrome
   - Vimium
-1. Resart
+1. Restart
 
