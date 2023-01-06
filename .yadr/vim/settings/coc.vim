@@ -163,7 +163,13 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " --- RECOMMENDED CONFIG END ---
-"
+
+" Configure workspace root patterns for specific language types
+" https://github.com/neoclide/coc.nvim/wiki/Using-workspaceFolders
+autocmd FileType typescript let b:coc_root_patterns = ['tsconfig.json']
+autocmd FileType typescriptreact let b:coc_root_patterns = ['tsconfig.json']
+autocmd FileType typescript.tsx let b:coc_root_patterns = ['tsconfig.json']
+
 " C++ clangd mappings
 nmap <silent> th :<C-u>CocCommand clangd.switchSourceHeader<cr>
 
