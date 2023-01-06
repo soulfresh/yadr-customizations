@@ -3,13 +3,14 @@
 # Update the following plugins provided by YADR
 # ---------------------------------------------
 # Make NerdTree a singleton tab
-sed -I -e '/jistr\/vim-nerdtree-tabs.git/d' ~/.yadr/vim/vundles/project.vundle
+sed -I '' '/jistr\/vim-nerdtree-tabs.git/d' ~/.yadr/vim/vundles/project.vundle
 # Broken jsx plugin
-sed -I -e '/mxw\/vim-jsx/d' ~/.yadr/vim/vundles/languages.vundle
+sed -I '' '/mxw\/vim-jsx/d' ~/.yadr/vim/vundles/languages.vundle
 # Conflicts with coc-snippets
-sed -I -e '/garbas\/vim-snipmate.git/d' ~/.yadr/vim/vundles/languages.vundle
+sed -I '' '/garbas\/vim-snipmate.git/d' ~/.yadr/vim/vundles/languages.vundle
+sed -I '' '/honza\/vim-snippets/d' ~/.yadr/vim/vundles/languages.vundle
 # Broken as of vim 8.1
-sed -I -e '/Shougo\/neocomplete.git/d' ~/.yadr/vim/vundles/vim-improvements.vundle
+sed -I '' '/Shougo\/neocomplete.git/d' ~/.yadr/vim/vundles/vim-improvements.vundle
 
 
 # Refresh plugins.
@@ -20,6 +21,7 @@ yadr vim-delete-plugin -u "Shougo/neocomplete"
 yadr vim-delete-plugin -u "mxw/vim-jsx"
 yadr vim-delete-plugin -u "jistr/vim-nerdtree-tabs"
 yadr vim-delete-plugin -u "garbas/vim-snipmate"
+yadr vim-delete-plugin -u "honza/vim-snippets"
 
 # CoC setup
 echo "CoC Setup..."
