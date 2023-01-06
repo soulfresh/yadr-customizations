@@ -139,6 +139,27 @@ snippet rspec
 		});
 	});
 
+snippet beforeEach
+	beforeEach(() => {
+		${1}
+	});
+
+snippet afterEach
+	afterEach(() => {
+		${1}
+	});
+
+snippet xit
+	xit('should ${1:${VISUAL}}.', () => {${2}});
+
+snippet it
+	it('should ${1:${VISUAL}}.', () => {${2}});
+
+snippet describe
+	describe('${1:${VISUAL}}', () => {
+	  xit('should ${2}.', () => {});
+	});
+
 # I can't figure out how to get @param to trigger the snippet
 snippet param
 	@param {${1}} [${2}] ${3}

@@ -87,11 +87,21 @@ snippet rspec
 		});
 	});
 
+snippet beforeEach
+	beforeEach(() => {
+		${1}
+	});
+
+snippet afterEach
+	afterEach(() => {
+		${1}
+	});
+
 snippet xit
-	xit('should ${1:${VISUAL}}.', () => {});
+	xit('should ${1:${VISUAL}}.', () => {${2}});
 
 snippet it
-	it('should ${1:${VISUAL}}.', () => {});
+	it('should ${1:${VISUAL}}.', () => {${2}});
 
 snippet describe
 	describe('${1:${VISUAL}}', () => {
